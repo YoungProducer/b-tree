@@ -8,8 +8,8 @@
 class BNode
 {
 public:
-	BNode (std::vector<float> data, uint16_t maxSize): _data(data), _maxSize(maxSize) {}
-	BNode (uint16_t maxSize): _maxSize(maxSize) {}
+	BNode (std::vector<float> data, size_t maxSize): _data(data), _maxSize(maxSize) { _childNodes.resize(maxSize + 1); }
+	BNode(size_t maxSize) : _maxSize(maxSize) { _childNodes.resize(maxSize + 1); }
 
 	const void add(float value);
 	bool includable(float value);

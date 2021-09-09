@@ -12,6 +12,10 @@ int main(int argc, char* argv[])
 
 	std::cout << node->getInsertIndex(5) << std::endl;
 
+	std::vector<int *> v;
+
+	std::cout << (v.empty()) << std::endl;
+
 
 	return 0;
 };
