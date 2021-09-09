@@ -15,8 +15,8 @@ public:
 	bool includable(float value);
 
 public:
-	uint16_t getInsertIndex(float value);
-	uint16_t getInsertIndex(float value, uint32_t start, uint32_t end);
+	int32_t getInsertIndex(float value);
+	int32_t getInsertIndex(float value, size_t start, size_t end);
 
 private:
 	uint16_t _maxSize;

@@ -8,18 +8,18 @@ const void BNode::add(float value)
 	}
 }
 
-uint16_t BNode::getInsertIndex(float value)
+int32_t BNode::getInsertIndex(float value)
 {
-	return getInsertIndex(value, 0, _data.size());
+	return getInsertIndex(value, 0, _data.size() - 1);
 }
 
-uint16_t BNode::getInsertIndex(float value, uint32_t start, uint32_t end)
+int32_t BNode::getInsertIndex(float value, size_t start, size_t end)
 {
-	if (_data[start] < value && value < _data[end]) return end;
+	if (end - start == 1 && _data[start] < value && value < _data[end]) return end;
 	if (value < _data[start]) return start;
 	if (value > _data[end]) return end + 1;
 	
-	uint32_t mid = (start + end) / 2;
+	size_t mid = (start + end) / 2;
 
 	if (value > _data[mid]) return getInsertIndex(value, mid + 1, end);
 	else if (value < _data[mid]) return getInsertIndex(value, start, mid - 1);
